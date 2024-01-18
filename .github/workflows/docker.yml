@@ -11,9 +11,6 @@ on:
       - ".github/workflows/*.yml"
     tags:
       - 'v*'
-  pull_request:
-    branches:
-      - 'master'
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: shinya-dono/shirayr
