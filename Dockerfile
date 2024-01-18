@@ -20,4 +20,4 @@ COPY --from=builder /app/release/config/* /etc/XrayR/
 COPY --from=builder /app/release/entrypoint.sh /etc/XrayR/
 
 
-ENTRYPOINT [ "XrayR", "--config", "/etc/XrayR/entrypoint.sh"]
+ENTRYPOINT ["/etc/XrayR/entrypoint.sh"]
