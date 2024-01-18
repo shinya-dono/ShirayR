@@ -17,7 +17,6 @@ RUN mkdir /etc/XrayR/
 COPY --from=builder /app/XrayR /usr/local/bin
 
 COPY --from=builder /app/release/config/* /etc/XrayR/
-COPY --from=builder /app/release/entrypoint.sh /etc/XrayR/
+COPY --from=builder /app/release/entrypoint.sh /docker-entrypoint.sh
 
-
-ENTRYPOINT ["/etc/XrayR/entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
