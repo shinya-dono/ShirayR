@@ -1,27 +1,43 @@
 [
   {
-    "tag": "IPv4_out",
+    "tag": "out",
     "protocol": "freedom",
-    "settings": {}
-  },
-  {
-    "tag": "IPv6_out",
-    "protocol": "freedom",
+    "streamSettings": {
+      "sockopt": {
+        "tcpFastOpen": true
+      }
+    },
     "settings": {
-      "domainStrategy": "UseIPv6"
+      "domainStrategy": "AsIs"
     }
   },
   {
-    "tag": "socks5-warp",
-    "protocol": "socks",
+    "protocol": "vmess",
     "settings": {
-      "servers": [
+      "vnext": [
         {
-          "address": "127.0.0.1",
-          "port": 1080
+          "address": "OUTBOUND_ADDRESS",
+          "port": OUTBOUND_PORT,
+          "users": [
+            {
+              "alterId": 0,
+              "id": "OUTBOUND_ID",
+              "security": "auto"
+            }
+          ]
         }
       ]
-    }
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "headers": {
+          "Host": "OUTBOUND_HOST"
+        },
+        "path": "OUTBOUND_PATH"
+      }
+    },
+    "tag": "proxy"
   },
   {
     "protocol": "blackhole",

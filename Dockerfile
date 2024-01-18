@@ -8,10 +8,27 @@ RUN go build -v -o XrayR -trimpath -ldflags "-s -w -buildid="
 
 # Release
 FROM  alpine
-# 安装必要的工具包
+
+ARG PANEL_URL
+ARG PANEL_SECRET
+ARG NODE_ID
+ARG ENABLE_VLESS=true
+ARG OUTBOUND_ADDRESS
+ARG OUTBOUND_PORT=8080
+ARG OUTBOUND_ID
+ARG OUTBOUND_HOST
+ARG OUTBOUND_PATH="/cyborg"
+
+
 RUN  apk --update --no-cache add tzdata ca-certificates \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    && cp /usr/share/zoneinfo/Asia/Tehran /etc/localtime
+
+
 RUN mkdir /etc/XrayR/
 COPY --from=builder /app/XrayR /usr/local/bin
 
-ENTRYPOINT [ "XrayR", "--config", "/etc/XrayR/config.yml"]
+COPY --from=builder /app/release/config/* /etc/XrayR/
+COPY --from=builder /app/release/entrypoint.sh /etc/XrayR/
+
+
+ENTRYPOINT [ "XrayR", "--config", "/etc/XrayR/entrypoint.sh"]
