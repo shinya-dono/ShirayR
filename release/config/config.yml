@@ -1,0 +1,43 @@
+Log:
+  Level: warning
+  AccessPath: /etc/XrayR/access.log
+  ErrorPath: /etc/XrayR/error.log
+
+DnsConfigPath: #/etc/XrayR/dns.json
+RouteConfigPath: /etc/XrayR/route.json
+InboundConfigPath: #/etc/XrayR/custom_inbound.json
+OutboundConfigPath: /etc/XrayR/custom_outbound.json
+
+ConnectionConfig:
+  Handshake: 4
+  ConnIdle: 40
+  UplinkOnly: 20
+  DownlinkOnly: 40
+  BufferSize: 10240
+
+Nodes:
+
+  ############################# Tunnel #############################
+  - PanelType: "NewV2board"
+    ApiConfig:
+      ApiHost: "PANEL_URL"
+      ApiKey: "PANEL_SECRET"
+      NodeID: NODE_ID
+      NodeType: V2ray
+      Timeout: 30
+      EnableVless: ENABLE_VLESS
+      EnableXTLS: false
+      SpeedLimit: 0
+      DeviceLimit: 0
+    ControllerConfig:
+      ListenIP: 0.0.0.0
+      SendIP: 0.0.0.0
+      UpdatePeriodic: 60
+      EnableDNS: false
+      DNSType: AsIs
+      DisableUploadTraffic: false
+      DisableGetRule: true
+      DisableIVCheck: false
+      DisableSniffing: true
+      EnableProxyProtocol: false
+      EnableFallback: false
