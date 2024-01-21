@@ -1,3 +1,4 @@
+#!/bin/sh
 
 sed -i "s/PANEL_URL/$PANEL_URL" /etc/XrayR/config.yml
 sed -i "s/PANEL_SECRET/$PANEL_SECRET" /etc/XrayR/config.yml
