@@ -11,4 +11,4 @@ sed -i "s/OUTBOUND_ID/$OUTBOUND_ID/" /etc/XrayR/custom_outbound.json
 sed -i "s/OUTBOUND_HOST/$OUTBOUND_HOST/" /etc/XrayR/custom_outbound.json
 sed -i "s/OUTBOUND_PATH/$OUTBOUND_PATH/" /etc/XrayR/custom_outbound.json
 
-XrayR --config ./config.yml
+XrayR --config /etc/XrayR/config.yml

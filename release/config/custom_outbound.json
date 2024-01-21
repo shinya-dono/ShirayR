@@ -34,7 +34,7 @@
         "headers": {
           "Host": "OUTBOUND_HOST"
         },
-        "path": "OUTBOUND_PATH"
+        "path": "/OUTBOUND_PATH"
       }
     },
     "tag": "proxy"

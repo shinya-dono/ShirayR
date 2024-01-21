@@ -20,7 +20,7 @@ Nodes:
   ############################# Tunnel #############################
   - PanelType: "NewV2board"
     ApiConfig:
-      ApiHost: "PANEL_URL"
+      ApiHost: "https://PANEL_URL/"
       ApiKey: "PANEL_SECRET"
       NodeID: NODE_ID
       NodeType: V2ray
